@@ -1,7 +1,7 @@
 colorscheme darkblue
 set relativenumber
 syntax on
-set backspace=2
+set backspace=indent,eol,start
 set autochdir
 
 if has("gui_running")

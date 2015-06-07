@@ -2,16 +2,20 @@ colorscheme darkblue
 set relativenumber
 syntax on
 set backspace=indent,eol,start
+let mapleader = " "
+
+" vim Directory same as current file
 set autochdir
 
 " Easier buffer switching
-:nnoremap <tab> :buffers<CR>:buffer<Space>
+nnoremap <tab> :buffers<CR>:buffer<Space>
 
 " Window split related things
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+map <leader>w <C-W>
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>h <C-W><C-H>
 
 set splitbelow
 set splitright

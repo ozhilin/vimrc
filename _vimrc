@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 colorscheme darkblue
 set relativenumber
 syntax on
@@ -30,3 +32,7 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif
+
+" Fuzzy Finder mappings
+nnoremap <leader>b :FufBuffer<ENTER>
+nnoremap <leader>o :FufFile<ENTER>

@@ -5,9 +5,15 @@ set relativenumber
 syntax on
 set backspace=indent,eol,start
 let mapleader = " "
-
+set noswapfile
 " vim Directory same as current file
 set autochdir
+
+" Tab handling
+filetype plugin indent on " Indentation scripst can be specified in indent/ folder
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " Easier buffer switching
 nnoremap <tab> :buffers<CR>:buffer<Space>
@@ -36,3 +42,4 @@ endif
 " Fuzzy Finder mappings
 nnoremap <leader>b :FufBuffer<ENTER>
 nnoremap <leader>o :FufFile<ENTER>
+nnoremap <leader>O :FufFile **/<CR> " Recursive through directories

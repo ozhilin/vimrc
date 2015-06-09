@@ -42,4 +42,5 @@ endif
 " Fuzzy Finder mappings
 nnoremap <leader>b :FufBuffer<ENTER>
 nnoremap <leader>o :FufFile<ENTER>
-nnoremap <leader>O :FufFile **/<CR> " Recursive through directories
+" Recursive file search through directories
+nnoremap <leader>O :FufFile **/<CR>

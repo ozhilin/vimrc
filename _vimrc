@@ -40,7 +40,9 @@ if has("gui_running")
 endif
 
 " Fuzzy Finder mappings
-nnoremap <leader>b :FufBuffer<ENTER>
-nnoremap <leader>o :FufFile<ENTER>
+nnoremap <leader>b :FufBuffer<CR>
+nnoremap <leader>o :FufFile<CR>
 " Recursive file search through directories
 nnoremap <leader>O :FufFile **/<CR>
+" Search inside current file
+nnoremap <leader>f :FufLine<CR>

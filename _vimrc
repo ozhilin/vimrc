@@ -1,5 +1,9 @@
-execute pathogen#infect()
+filetype off
 
+execute pathogen#infect()
+Helptags
+
+set ruler
 set relativenumber
 syntax on
 set backspace=indent,eol,start

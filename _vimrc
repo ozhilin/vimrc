@@ -14,6 +14,7 @@ set autochdir
 
 " Tab handling
 filetype plugin indent on " Indentation scripst can be specified in indent/ folder
+set ai
 set tabstop=4
 set shiftwidth=4
 set expandtab

@@ -3,6 +3,7 @@ filetype off
 execute pathogen#infect()
 Helptags
 
+""" misc stuff
 set ruler
 set relativenumber
 syntax on
@@ -22,7 +23,7 @@ set expandtab
 " Easier buffer switching
 nnoremap <tab> :buffers<CR>:buffer<Space>
 
-" Window split related things
+""" Window split related things
 map <leader>w <C-W>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
@@ -32,8 +33,15 @@ nnoremap <leader>h <C-W><C-H>
 set splitbelow
 set splitright
 
-" Fuzzy Finder mappings
-nnoremap <leader>b :FufBuffer<CR>
+""" Random cool mappings
+" Quicker exit of insert mode
+inoremap jk <Esc>
+" Easier typing of commands
+nnoremap <Leader>j :
+" Easier saving
+nnoremap <Leader>s :w<CR>
+
+""" Fuzzy Finder mappings
 nnoremap <leader>o :FufFile<CR>
 " Recursive file search through directories
 nnoremap <leader>O :FufFile **/<CR>

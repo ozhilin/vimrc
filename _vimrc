@@ -39,9 +39,9 @@ set splitright
 " Quicker exit of insert mode
 inoremap jk <Esc>
 " Easier typing of commands
-nnoremap <Leader>h :
+nnoremap <leader>h :
 " Easier saving
-nnoremap <Leader>s :w<CR>
+nnoremap <leader>s :w<CR>
 
 """ Fuzzy Finder mappings
 nnoremap <leader>o :FufFile<CR>
@@ -49,7 +49,7 @@ nnoremap <leader>o :FufFile<CR>
 nnoremap <leader>O :FufFile **/<CR>
 " Search inside current file
 nnoremap <leader>f :FufLine<CR>
-
+nnoremap <leader>d :FufDir<CR>
 
 " --------- COLORS  -----------
 set background=dark

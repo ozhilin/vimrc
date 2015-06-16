@@ -3,6 +3,8 @@ filetype off
 execute pathogen#infect()
 Helptags
 
+filetype on
+
 """ misc stuff
 set ruler
 set relativenumber
@@ -14,7 +16,7 @@ set noswapfile
 set autochdir
 
 " Tab handling
-filetype plugin indent on " Indentation scripst can be specified in indent/ folder
+filetype plugin indent on " Indentation scripts can be specified in indent/ folder
 set ai
 set tabstop=4
 set shiftwidth=4
@@ -37,7 +39,7 @@ set splitright
 " Quicker exit of insert mode
 inoremap jk <Esc>
 " Easier typing of commands
-nnoremap <Leader>j :
+nnoremap <Leader>h :
 " Easier saving
 nnoremap <Leader>s :w<CR>
 

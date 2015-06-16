@@ -38,8 +38,6 @@ set splitright
 """ Random cool mappings
 " Quicker exit of insert mode
 inoremap jk <Esc>
-" Easier typing of commands
-nnoremap <leader>h :
 " Easier saving
 nnoremap <leader>s :w<CR>
 

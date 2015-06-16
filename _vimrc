@@ -42,6 +42,7 @@ inoremap jk <Esc>
 nnoremap <leader>s :w<CR>
 
 """ Fuzzy Finder mappings
+nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>o :FufFile<CR>
 " Recursive file search through directories
 nnoremap <leader>O :FufFile **/<CR>

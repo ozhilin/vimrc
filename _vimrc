@@ -9,15 +9,21 @@ filetype on
 set ruler
 set relativenumber
 syntax on
-set backspace=indent,eol,start
+set backspace=indent,eol,start  " Rational backspace
 let mapleader = " "
-set noswapfile
-" vim Directory same as current file
-set autochdir
+set noswapfile  " Pray for no crashes
+set autochdir   " vim Directory same as current file
+
+set wildmenu    " visual autocomplete for command menu
+set lazyredraw  " redraw only when we need to.
+
+set incsearch   " search as characters are entered
+set hlsearch    " highlight matches
+nnoremap <leader>n :nohlsearch<CR>      " Remove all highlights
 
 " Tab handling
 filetype plugin indent on " Indentation scripts can be specified in indent/ folder
-set ai
+set ai      " Auto indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab

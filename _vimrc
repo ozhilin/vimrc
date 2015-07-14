@@ -5,9 +5,6 @@ Helptags
 
 filetype on
 
-" Automatic opening of agenda
-nnoremap <leader>ww :open <C-r>=g:org_main<CR><CR>
-
 """ misc stuff
 set ruler
 set relativenumber
@@ -30,6 +27,10 @@ set ai      " Auto indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+
+" Automatic opening of agenda
+nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
 
 " Easier buffer switching
 nnoremap <tab> :buffers<CR>:buffer<Space>

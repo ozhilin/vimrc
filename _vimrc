@@ -5,7 +5,9 @@ Helptags
 
 filetype on
 
+""" 
 """ misc stuff
+"""
 set ruler
 set relativenumber
 syntax on
@@ -28,14 +30,15 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-
 " Automatic opening of agenda
 nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
 
 " Easier buffer switching
 nnoremap <tab> :buffers<CR>:buffer<Space>
 
+"""
 """ Window split related things
+"""
 map <leader>w <C-W>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
@@ -45,13 +48,24 @@ nnoremap <leader>h <C-W><C-H>
 set splitbelow
 set splitright
 
+"""
 """ Random cool mappings
+"""
 " Quicker exit of insert mode
 inoremap jk <Esc>
 " Easier saving
 nnoremap <leader>s :w<CR>
+" Better move to beginning of line
+nnoremap 0 g^
 
+"""
+""" Quick-scope mappings
+"""
+nmap <leader>q <plug>(QuickScopeToggle)
+
+"""
 """ Fuzzy Finder mappings
+"""
 nnoremap <leader>b :FufBuffer<CR>
 nnoremap <leader>o :FufFile<CR>
 " Recursive file search through directories
@@ -60,7 +74,9 @@ nnoremap <leader>O :FufFile **/<CR>
 nnoremap <leader>f :FufLine<CR>
 nnoremap <leader>d :FufDir<CR>
 
+"""
 " --------- COLORS  -----------
+"""
 set background=dark
 colorscheme peaksea
 

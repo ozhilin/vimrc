@@ -10,3 +10,6 @@
 [submodule "bundle/quick-scope"]
 	path = bundle/quick-scope
 	url = https://github.com/unblevable/quick-scope.git
+[submodule "bundle/utl.vim"]
+	path = bundle/utl.vim
+	url = https://github.com/vim-scripts/utl.vim.git

@@ -57,6 +57,8 @@ inoremap jk <Esc>
 nnoremap <leader>s :w<CR>
 " Better move to beginning of line
 nnoremap 0 g^
+" Shortcut to paste from clipboard
+nnoremap <leader>p "*p
 
 """
 """ Quick-scope mappings

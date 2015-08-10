@@ -80,7 +80,7 @@ nnoremap <leader>d :FufDir<CR>
 " --------- COLORS  -----------
 """
 set background=dark
-colorscheme peaksea
+colorscheme apprentice
 
 " GUI fonts
 if has("gui_running")

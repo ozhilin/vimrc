@@ -34,7 +34,7 @@ set expandtab
 nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
 
 " Easier buffer switching
-nnoremap <tab> :buffers<CR>:buffer<Space>
+"nnoremap <tab> :buffers<CR>:buffer<Space>
 
 """
 """ Window split related things

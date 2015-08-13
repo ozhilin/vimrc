@@ -16,3 +16,9 @@
 [submodule "bundle/VimCompletesMe"]
 	path = bundle/VimCompletesMe
 	url = https://github.com/ajh17/VimCompletesMe.git
+[submodule "~/.vim/bundle/scratch"]
+	path = ~/.vim/bundle/scratch
+	url = https://github.com/mtth/scratch.vim
+[submodule "bundle/scratch.vim"]
+	path = bundle/scratch.vim
+	url = https://github.com/mtth/scratch.vim

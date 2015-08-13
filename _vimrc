@@ -57,8 +57,9 @@ inoremap jk <Esc>
 nnoremap <leader>s :w<CR>
 " Better move to beginning of line
 nnoremap 0 g^
-" Shortcut to paste from clipboard
+" Shortcut to copy/paste from clipboard
 nnoremap <leader>p "*p
+nnoremap <leader>y "*y
 
 """
 """ Quick-scope mappings
@@ -77,7 +78,10 @@ nnoremap <leader>f :FufLine<CR>
 nnoremap <leader>d :FufDir<CR>
 
 """
-" --------- COLORS  -----------
+""" Scratch plugin mappings
+"""
+nnoremap <leader>g :Scratch<CR>
+
 """
 set background=dark
 colorscheme apprentice

@@ -6,7 +6,7 @@ Helptags
 filetype on
 
 """ 
-""" misc stuff
+""" misc settings and mappings
 """
 set ruler
 set relativenumber
@@ -15,10 +15,25 @@ set backspace=indent,eol,start  " Rational backspace
 let mapleader = " "
 set noswapfile  " Pray for no crashes
 set autochdir   " vim Directory same as current file
-
 set wildmenu    " visual autocomplete for command menu
 set lazyredraw  " redraw only when we need to.
 
+" Quicker exit of insert mode
+inoremap jk <Esc>
+" Easier saving
+nnoremap <leader>s :w<CR>
+" Better move to beginning of line (ignores whitespace at the beginning)
+nnoremap 0 g^
+" Copy/Paste to/from clipboard
+nnoremap <leader>p "*p 
+nnoremap <leader>y "*y
+" Open/Close folds with tab
+nnoremap <tab> za
+nnoremap <S-tab> zc
+
+"""
+""" Searching configurations
+"""
 set incsearch   " search as characters are entered
 set hlsearch    " highlight matches
 nnoremap <leader>n :nohlsearch<CR>      " Remove all highlights
@@ -29,12 +44,6 @@ set ai      " Auto indentation
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-" Automatic opening of agenda
-nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
-
-" Easier buffer switching
-"nnoremap <tab> :buffers<CR>:buffer<Space>
 
 """
 """ Window split related things
@@ -49,17 +58,10 @@ set splitbelow
 set splitright
 
 """
-""" Random cool mappings
+""" PLUGIN RELATED STUFF
 """
-" Quicker exit of insert mode
-inoremap jk <Esc>
-" Easier saving
-nnoremap <leader>s :w<CR>
-" Better move to beginning of line
-nnoremap 0 g^
-" Shortcut to copy/paste from clipboard
-nnoremap <leader>p "*p
-nnoremap <leader>y "*y
+" Automatic opening of agenda (vim-orgmode)
+nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
 
 """
 """ Quick-scope mappings
@@ -82,6 +84,8 @@ nnoremap <leader>d :FufDir<CR>
 """
 nnoremap <leader>g :Scratch<CR>
 
+"""
+""" APPEARANCE RELATED STUFF
 """
 set background=dark
 colorscheme apprentice

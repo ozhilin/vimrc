@@ -64,6 +64,11 @@ set splitright
 nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
 
 """
+""" Pandoc settings
+"""
+let g:pandoc#folding#fold_fenced_codeblocks = 1
+
+"""
 """ Quick-scope mappings
 """
 nmap <leader>q <plug>(QuickScopeToggle)
@@ -87,8 +92,8 @@ nnoremap <leader>g :Scratch<CR>
 """
 """ APPEARANCE RELATED STUFF
 """
-set background=dark
-colorscheme apprentice
+set background=light
+colorscheme solarized
 
 " GUI fonts
 if has("gui_running")
@@ -100,3 +105,8 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   endif
 endif
+
+set guioptions-=m "remove menu bar
+set guioptions-=T "remove toolbar 
+set guioptions-=r "remove right scroll-bar 
+set guioptions-=L "remove left scroll-bar 

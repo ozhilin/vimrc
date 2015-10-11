@@ -16,7 +16,7 @@ let mapleader = " "
 set noswapfile  " Pray for no crashes
 set autochdir   " vim Directory same as current file
 set wildmenu    " visual autocomplete for command menu
-set lazyredraw  " redraw only when we need to.
+"set lazyredraw  " redraw only when we need to.
 
 " Quicker exit of insert mode
 inoremap jk <Esc>
@@ -30,6 +30,8 @@ nnoremap <leader>y "*y
 " Open/Close folds with tab
 nnoremap <tab> za
 nnoremap <S-tab> zc
+" Show pressed keys in normal mode
+set showcmd
 
 """
 """ Searching configurations
@@ -60,8 +62,19 @@ set splitright
 """
 """ PLUGIN RELATED STUFF
 """
+
 " Automatic opening of agenda (vim-orgmode)
 nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
+
+
+"""
+""" Lightline settings
+"""
+set laststatus=2
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ }
 
 """
 """ Pandoc settings
@@ -94,9 +107,6 @@ nnoremap <leader>g :Scratch<CR>
 """
 " GUI fonts
 if has("gui_running")
-    set background=light
-    colorscheme solarized
-
     if has("gui_gtk2")
         set guifont=Inconsolata\ 12
     elseif has("gui_macvim")
@@ -104,9 +114,6 @@ if has("gui_running")
     elseif has("gui_win32")
         set guifont=Consolas:h11:cANSI
     endif
-else
-    set background=dark
-    colorscheme apprentice
 endif
 
 set guioptions-=m "remove menu bar

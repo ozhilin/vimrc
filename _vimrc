@@ -10,13 +10,15 @@ filetype on
 """
 set ruler
 set relativenumber
+" set nu
 syntax on
 set backspace=indent,eol,start  " Rational backspace
 let mapleader = " "
 set noswapfile  " Pray for no crashes
 set autochdir   " vim Directory same as current file
 set wildmenu    " visual autocomplete for command menu
-"set lazyredraw  " redraw only when we need to.
+set lazyredraw  " redraw only when we need to.
+set fdo-=search
 
 " Quicker exit of insert mode
 inoremap jk <Esc>
@@ -38,7 +40,7 @@ set showcmd
 """
 set incsearch   " search as characters are entered
 set hlsearch    " highlight matches
-nnoremap <leader>n :nohlsearch<CR>      " Remove all highlights
+" map <leader>n :nohlsearch<CR>      " Remove all highlights
 
 " Tab handling
 filetype plugin indent on " Indentation scripts can be specified in indent/ folder
@@ -58,6 +60,21 @@ nnoremap <leader>h <C-W><C-H>
 
 set splitbelow
 set splitright
+
+"
+" Toggling numbers
+"
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+    set norelativenumber
+  else
+    set relativenumber
+    set nonumber
+  endif
+endfunc
+
+nnoremap <C-n> :call NumberToggle()<cr>
 
 """
 """ PLUGIN RELATED STUFF

@@ -1,15 +1,6 @@
-[submodule "bundle/vim-orgmode"]
-	path = bundle/vim-orgmode
-	url = https://github.com/jceb/vim-orgmode.git
-[submodule "bundle/vim-speeddating"]
-	path = bundle/vim-speeddating
-	url = https://github.com/tpope/vim-speeddating.git
 [submodule "bundle/quick-scope"]
 	path = bundle/quick-scope
 	url = https://github.com/unblevable/quick-scope.git
-[submodule "bundle/utl.vim"]
-	path = bundle/utl.vim
-	url = https://github.com/vim-scripts/utl.vim.git
 [submodule "bundle/VimCompletesMe"]
 	path = bundle/VimCompletesMe
 	url = https://github.com/ajh17/VimCompletesMe.git

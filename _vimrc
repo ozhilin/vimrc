@@ -1,5 +1,9 @@
 filetype off
 
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+endif
+
 execute pathogen#infect()
 Helptags
 
@@ -10,7 +14,6 @@ filetype on
 """
 set ruler
 set relativenumber
-" set nu
 syntax on
 set backspace=indent,eol,start  " Rational backspace
 let mapleader = " "
@@ -40,7 +43,7 @@ set showcmd
 """
 set incsearch   " search as characters are entered
 set hlsearch    " highlight matches
-" map <leader>n :nohlsearch<CR>      " Remove all highlights
+nnoremap  <CR> :nohl<CR>      
 
 " Tab handling
 filetype plugin indent on " Indentation scripts can be specified in indent/ folder
@@ -80,18 +83,14 @@ nnoremap <C-n> :call NumberToggle()<cr>
 """ PLUGIN RELATED STUFF
 """
 
-" Automatic opening of agenda (vim-orgmode)
-nnoremap <leader>a :vs <C-r>=g:org_main<CR><CR>
-
-
 """
 """ Lightline settings
 """
 set laststatus=2
 set noshowmode
-let g:lightline = {
-      \ 'colorscheme': 'solarized',
-      \ }
+"let g:lightline = {
+      "\ 'colorscheme': 'solarized',
+      "\ }
 
 """
 """ Pandoc settings

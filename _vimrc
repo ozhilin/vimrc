@@ -9,19 +9,25 @@ Helptags
 
 filetype on
 
+" Space as leader
+let mapleader = " "
+
 """ 
 """ misc settings and mappings
 """
 set ruler
 set relativenumber
 syntax on
-set backspace=indent,eol,start  " Rational backspace
-let mapleader = " "
-set noswapfile  " Pray for no crashes
-set autochdir   " vim Directory same as current file
-set wildmenu    " visual autocomplete for command menu
-set lazyredraw  " redraw only when we need to.
-set fdo-=search
+" rational backspace
+set backspace=indent,eol,start
+" pray for no crashes
+set noswapfile
+" Vim Directory same as current file
+set autochdir
+" Visual autocomplete for command menu
+set wildmenu
+" Redraw only when we need to.
+set lazyredraw
 
 " Quicker exit of insert mode
 inoremap jk <Esc>
@@ -44,10 +50,17 @@ set showcmd
 set incsearch   " search as characters are entered
 set hlsearch    " highlight matches
 nnoremap  <CR> :nohl<CR>      
+" Search as characters are entered
+set incsearch
+" Highlight matches
+set hlsearch
+" Remove all highlights
+nnoremap <CR> :nohl<CR>
 
 " Tab handling
 filetype plugin indent on " Indentation scripts can be specified in indent/ folder
-set ai      " Auto indentation
+" auto indentation
+set ai
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -63,21 +76,6 @@ nnoremap <leader>h <C-W><C-H>
 
 set splitbelow
 set splitright
-
-"
-" Toggling numbers
-"
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-    set norelativenumber
-  else
-    set relativenumber
-    set nonumber
-  endif
-endfunc
-
-nnoremap <C-n> :call NumberToggle()<cr>
 
 """
 """ PLUGIN RELATED STUFF
@@ -103,17 +101,6 @@ let g:pandoc#folding#fold_fenced_codeblocks = 1
 nmap <leader>q <plug>(QuickScopeToggle)
 
 """
-""" Fuzzy Finder mappings
-"""
-nnoremap <leader>b :FufBuffer<CR>
-nnoremap <leader>o :FufFile<CR>
-" Recursive file search through directories
-nnoremap <leader>O :FufFile **/<CR>
-" Search inside current file
-nnoremap <leader>f :FufLine<CR>
-nnoremap <leader>d :FufDir<CR>
-
-"""
 """ Scratch plugin mappings
 """
 nnoremap <leader>g :Scratch<CR>
@@ -130,9 +117,9 @@ if has("gui_running")
     elseif has("gui_win32")
         set guifont=Consolas:h11:cANSI
     endif
-endif
 
-set guioptions-=m "remove menu bar
-set guioptions-=T "remove toolbar 
-set guioptions-=r "remove right scroll-bar 
-set guioptions-=L "remove left scroll-bar 
+    set guioptions-=m "remove menu bar
+    set guioptions-=T "remove toolbar 
+    set guioptions-=r "remove right scroll-bar 
+    set guioptions-=L "remove left scroll-bar 
+endif

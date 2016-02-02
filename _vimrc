@@ -4,6 +4,13 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
 endif
 
+let g:pathogen_disabled = []
+call add(g:pathogen_disabled, 'VimCompletesMe')
+
+if has('win32') || has('win64')
+  source ~\vimrc\bundle\vim-snipmate\after\plugin\snipMate.vim
+endif
+
 execute pathogen#infect()
 Helptags
 
@@ -61,8 +68,8 @@ nnoremap <CR> :nohl<CR>
 filetype plugin indent on " Indentation scripts can be specified in indent/ folder
 " auto indentation
 set ai
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 """

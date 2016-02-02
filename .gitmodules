@@ -28,3 +28,24 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule "bundle/omnisharp"]
+	path = bundle/omnisharp
+	url = https://github.com/OmniSharp/omnisharp-vim.git
+[submodule "bundle/vim-csharp"]
+	path = bundle/vim-csharp
+	url = https://github.com/OrangeT/vim-csharp.git
+[submodule "bundle/vim-js-syntax"]
+	path = bundle/vim-js-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "bundle/tlib_vim"]
+	path = bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "bundle/vim-snippets"]
+	path = bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git

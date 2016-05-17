@@ -45,6 +45,8 @@ nnoremap 0 g^
 " Copy/Paste to/from clipboard
 nnoremap <leader>p "*p 
 nnoremap <leader>y "*y
+vnoremap <leader>y "*y
+
 " Open/Close folds with tab
 nnoremap <tab> za
 nnoremap <S-tab> zc
@@ -63,6 +65,9 @@ set incsearch
 set hlsearch
 " Remove all highlights
 nnoremap <CR> :nohl<CR>
+
+set ignorecase
+set smartcase
 
 " Tab handling
 filetype plugin indent on " Indentation scripts can be specified in indent/ folder

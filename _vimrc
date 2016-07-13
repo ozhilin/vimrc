@@ -30,7 +30,7 @@ set backspace=indent,eol,start
 " pray for no crashes
 set noswapfile
 " Vim Directory same as current file
-set autochdir
+" set autochdir
 " Visual autocomplete for command menu
 set wildmenu
 " Redraw only when we need to.
@@ -46,6 +46,9 @@ nnoremap 0 g^
 nnoremap <leader>p "*p 
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
+
+" Remove history buffer
+nnoremap q: <Nop>
 
 " Open/Close folds with tab
 nnoremap <tab> za

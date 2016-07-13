@@ -1,14 +1,15 @@
 filetype off
 
 if has('win32') || has('win64')
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+  source ~/vimfiles/autoload/pathogen.vim
 endif
 
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'VimCompletesMe')
 
 if has('win32') || has('win64')
-  source ~\vimrc\bundle\vim-snipmate\after\plugin\snipMate.vim
+  source ~/vimfiles/bundle/vim-snipmate/after/plugin/snipMate.vim
 endif
 
 execute pathogen#infect()

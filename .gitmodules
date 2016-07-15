@@ -4,9 +4,6 @@
 [submodule "bundle/VimCompletesMe"]
 	path = bundle/VimCompletesMe
 	url = https://github.com/ajh17/VimCompletesMe.git
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/vim-pandoc"]
 	path = bundle/vim-pandoc
 	url = https://github.com/vim-pandoc/vim-pandoc.git

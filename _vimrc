@@ -1,7 +1,7 @@
 filetype off
 
 if has('win32') || has('win64')
-  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
   source ~/vimfiles/autoload/pathogen.vim
 endif
 
@@ -47,14 +47,17 @@ nnoremap <leader>p "*p
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 
+" Flip " and ' so that registers are easier to use
+nnoremap " '
+nnoremap ' "
+vnoremap " '
+vnoremap ' "
+
 " Open/Close folds with tab
 nnoremap <tab> za
 nnoremap <S-tab> zc
 " Show pressed keys in normal mode
 set showcmd
-
-" Remove <CR> prompt after opening link
-"nnoremap gx gx<CR>
 
 """
 """ Searching configurations

@@ -1,7 +1,8 @@
 filetype off
 
 if has('win32') || has('win64')
-  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+  source ~/vimfiles/autoload/pathogen.vim
 endif
 
 let g:pathogen_disabled = []
@@ -9,7 +10,7 @@ call add(g:pathogen_disabled, 'VimCompletesMe')
 call add(g:pathogen_disabled, 'colorschemes')
 
 if has('win32') || has('win64')
-  source ~\vimrc\bundle\vim-snipmate\after\plugin\snipMate.vim
+  source ~/vimfiles/bundle/vim-snipmate/after/plugin/snipMate.vim
 endif
 
 execute pathogen#infect()
@@ -45,6 +46,7 @@ nnoremap 0 g^
 nnoremap <leader>p "*p 
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
+
 " Open/Close folds with tab
 nnoremap <tab> za
 nnoremap <S-tab> zc
@@ -86,7 +88,6 @@ nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
-
 set splitbelow
 set splitright
 

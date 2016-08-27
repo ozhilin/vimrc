@@ -57,6 +57,10 @@ nnoremap <S-tab> zc
 " Show pressed keys in normal mode
 set showcmd
 
+" set vim dir to current file's directory
+nnoremap <leader>d :cd%:p:h<CR>
+
+
 """
 """ Searching configurations
 """

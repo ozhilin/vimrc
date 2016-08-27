@@ -1,12 +1,13 @@
 filetype off
 
 if has('win32') || has('win64')
-  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after,$HOME/vimrc
+  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
   source ~/vimfiles/autoload/pathogen.vim
 endif
 
 let g:pathogen_disabled = []
 call add(g:pathogen_disabled, 'VimCompletesMe')
+call add(g:pathogen_disabled, 'colorschemes')
 
 if has('win32') || has('win64')
   source ~/vimfiles/bundle/vim-snipmate/after/plugin/snipMate.vim
@@ -25,13 +26,15 @@ let mapleader = " "
 """
 set ruler
 set relativenumber
-syntax on
+"syntax on
 " rational backspace
 set backspace=indent,eol,start
 " pray for no crashes
 set noswapfile
+
 " Vim Directory same as current file
 " set autochdir
+
 " Visual autocomplete for command menu
 set wildmenu
 " Redraw only when we need to.
@@ -50,6 +53,12 @@ vnoremap <leader>y "*y
 
 " Remove history buffer
 nnoremap q: <Nop>
+
+" Flip " and ' so that registers are easier to use
+nnoremap " '
+nnoremap ' "
+vnoremap " '
+vnoremap ' "
 
 " Open/Close folds with tab
 nnoremap <tab> za
@@ -93,14 +102,13 @@ nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
+set splitbelow
+set splitright
 
 """
 """ Tab mappings
 """
 nnoremap <leader>t :tabnew<CR>
-
-set splitbelow
-set splitright
 
 """
 """ PLUGIN RELATED STUFF
@@ -135,16 +143,17 @@ nnoremap <leader>g :Scratch<CR>
 """
 " GUI fonts
 if has("gui_running")
-    if has("gui_gtk2")
-        set guifont=Inconsolata\ 12
-    elseif has("gui_macvim")
-        set guifont=Menlo\ Regular:h14
-    elseif has("gui_win32")
-        set guifont=Consolas:h11:cANSI
-    endif
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
 
-    set guioptions-=m "remove menu bar
-    set guioptions-=T "remove toolbar 
-    set guioptions-=r "remove right scroll-bar 
-    set guioptions-=L "remove left scroll-bar 
+  set guioptions-=m "remove menu bar
+  set guioptions-=T "remove toolbar 
+  set guioptions-=r "remove right scroll-bar 
+  set guioptions-=L "remove left scroll-bar 
+  set guitablabel=%t
 endif

@@ -3,15 +3,9 @@ filetype off
 
 if has('win32') || has('win64')
   call plug#begin('~/vimfiles/plugins')
-  " set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-  " source ~/vimfiles/autoload/pathogen.vim
 else
   call plug#begin('~/.vim/plugins')
 endif
-
-" let g:pathogen_disabled = []
-" call add(g:pathogen_disabled, 'VimCompletesMe')
-" call add(g:pathogen_disabled, 'colorschemes')
 
 " Dependencies for snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -27,13 +21,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 
 call plug#end()
-
-if has('win32') || has('win64')
-  source ~/vimfiles/bundle/vim-snipmate/after/plugin/snipMate.vim
-endif
-
-" execute pathogen#infect()
-" Helptags
 
 filetype on
 
@@ -131,9 +118,6 @@ nnoremap <leader>t :tabnew<CR>
 """
 set laststatus=2
 set noshowmode
-"let g:lightline = {
-      "\ 'colorscheme': 'solarized',
-      "\ }
 
 """
 """ Pandoc settings

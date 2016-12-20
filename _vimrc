@@ -1,20 +1,39 @@
+" vim: se ff=unix :
 filetype off
 
 if has('win32') || has('win64')
-  set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-  source ~/vimfiles/autoload/pathogen.vim
+  call plug#begin('~/vimfiles/plugins')
+  " set runtimepath+=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+  " source ~/vimfiles/autoload/pathogen.vim
+else
+  call plug#begin('~/.vim/plugins')
 endif
 
-let g:pathogen_disabled = []
-call add(g:pathogen_disabled, 'VimCompletesMe')
-call add(g:pathogen_disabled, 'colorschemes')
+" let g:pathogen_disabled = []
+" call add(g:pathogen_disabled, 'VimCompletesMe')
+" call add(g:pathogen_disabled, 'colorschemes')
+
+" Dependencies for snipmate
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'unblevable/quick-scope'
+Plug 'Townk/vim-autoclose'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-vinegar'
+
+call plug#end()
 
 if has('win32') || has('win64')
   source ~/vimfiles/bundle/vim-snipmate/after/plugin/snipMate.vim
 endif
 
-execute pathogen#infect()
-Helptags
+" execute pathogen#infect()
+" Helptags
 
 filetype on
 
@@ -26,7 +45,7 @@ let mapleader = " "
 """
 set ruler
 set relativenumber
-"syntax on
+syntax on
 " rational backspace
 set backspace=indent,eol,start
 " pray for no crashes
@@ -42,6 +61,7 @@ inoremap jk <Esc>
 nnoremap <leader>s :w<CR>
 " Better move to beginning of line (ignores whitespace at the beginning)
 nnoremap 0 g^
+nnoremap ^ 0
 " Copy/Paste to/from clipboard
 nnoremap <leader>p "*p 
 nnoremap <leader>y "*y
@@ -71,6 +91,9 @@ set incsearch
 set hlsearch
 " Remove all highlights
 nnoremap <CR> :nohl<CR>
+" Call :difft
+nnoremap  <leader>dt :difft<CR>      
+nnoremap  <leader>do :diffo<CR>      
 
 set ignorecase
 set smartcase

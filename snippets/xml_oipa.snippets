@@ -1,0 +1,59 @@
+snippet for
+	<MathLoop VARIABLENAME="${1:}Loop" TYPE="FOR" ITERATIONS="$1ArrayCount">
+		<MathVariable VARIABLENAME="$1LoopIndex" TYPE="LOOPINDEX" SOURCEARRAY="$1Loop" DATATYPE="INTEGER"></MathVariable>
+		<MathVariable VARIABLENAME="This$1" TYPE="AGGREGATEFUNCTION" METHOD="INDEX" INDEX="$1LoopIndex" DATATYPE="${2:TEXT}">$1Array</MathVariable>
+		${0}
+	</MathLoop>
+
+snippet if
+	<MathIF IF="${1:}">
+		${0}
+	</MathIF>
+
+snippet iif
+	<MathVariable VARIABLENAME="${1:}" TYPE="IIF" EXPRESSION="${2:}" DATATYPE="${3:BOOLEAN}">${4:true}, ${5:false}</MathVariable>
+	${0}
+
+snippet var
+	<MathVariable VARIABLENAME="${1:}" TYPE="${2:VALUE|EXPRESSION|FUNCTION|SQL|FIELD}" DATATYPE="${3:TEXT|INTEGER|DECIMAL|BOOLEAN|CURRENCY}">${0}</MathVariable>
+
+snippet sqlcol
+	<MathVariable VARIABLENAME="${1:}" TYPE="COLLECTION" DATATYPE="MAP">${0}</MathVariable>
+
+snippet createcol
+	<MathVariable VARIABLENAME="${1:}" TYPE="COLLECTION" OPERATION="CREATE" DATATYPE="MAP"/>
+	${0}
+
+snippet setcol
+	<MathVariable VARIABLENAME="${1:}" TYPE="COLLECTION" OPERATION="SETVALUE" KEY="${2:}" DATATYPE="${3:}">${0}</MathVariable>
+
+snippet colval
+	<MathVariable VARIABLENAME="${1:}" TYPE="COLLECTIONVALUE" KEY="${2:}" DATATYPE="${3:}">${4:}</MathVariable>
+	${0}
+
+snippet array
+	<MathVariable VARIABLENAME="${1:}" TYPE="${2:STRING|INTEGER|NUMERIC|DATE}ARRAY" OPERATION="${3:CREATE|FILLBY-SQL}" DATATYPE="${4:TEXT|INTEGER|DECIMAL|BOOLEAN}"></MathVariable>
+
+snippet count
+	<MathVariable VARIABLENAME="${1:}" TYPE="AGGREGATEFUNCTION" METHOD="COUNT" DATATYPE="INTEGER">${2:}</MathVariable>
+
+snippet event
+	<Event TYPE="${1:ONLOAD|ONSUBMIT|ONCHANGE (Add Field)}">
+		<Math ID="${2:}"></Math>
+		<ActionSet ID="${3:}"></ActionSet>
+	</Event>
+	${0}
+
+snippet spawnfield
+	<SpawnField>
+		<From>${1:}</From>
+		<To>${2:}</To>
+		<DataType>${3:}</DataType> t:
+	</SpawnField>
+	${0}
+
+snippet clientactivity
+	<MathVariable VARIABLENAME="${1:}Activity" TYPE="ACTIVITY" OPERATION="CREATE" LEVEL="CLIENT" TARGET="${2:}" DATATYPE="ACTIVITY">"${3:}"</MathVariable>
+	<MathVariable VARIABLENAME="$1Activity" TYPE="ACTIVITY" OPERATION="SETVALUE" FIELDNAME="EffectiveDate" DATATYPE="DATE">${4:}</MathVariable>
+	<MathVariable VARIABLENAME="$1Activity" TYPE="ACTIVITY" OPERATION="SETVALUE" FIELDNAME="${5:}" DATATYPE="${6:}">${7:}</MathVariable>
+	<MathVariable VARIABLENAME="$1ActivityArray" TYPE="ACTIVITYARRAY" OPERATION="APPEND" SOURCEARRAY="${8:}" DATATYPE="ACTIVITY">${0:}</MathVariable>

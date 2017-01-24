@@ -23,6 +23,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-abolish'
 
 call plug#end()
 
@@ -42,16 +43,15 @@ set backspace=indent,eol,start
 " pray for no crashes
 set noswapfile
 
-" Vim Directory same as current file
-" set autochdir
-
-" Visual autocomplete for command menu
+  " Visual autocomplete for command menu
 set wildmenu
 " Redraw only when we need to.
 set lazyredraw
 
 " Quicker exit of insert mode
 inoremap jk <Esc>
+" Don't select first element when doing ctrl-n
+inoremap <C-Space> <C-n><C-p>
 " Easier saving
 nnoremap <leader>s :w<CR>
 " Better move to beginning of line (ignores whitespace at the beginning)
@@ -62,6 +62,11 @@ nnoremap <leader>p "*p
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 
+" Change file type faster
+nnoremap <leader>f :set ft=
+" Create new file
+nnoremap <leader>n :enew<CR>
+"
 " Remove history buffer
 nnoremap q: <Nop>
 
@@ -125,6 +130,30 @@ set splitright
 nnoremap <leader>t :tabnew<CR>
 
 """
+""" Crazy syntax and completion
+"""
+set completeopt=menuone
+set pumheight=10
+set updatetime=10
+
+function! HighlightWordUnderCursor()
+  if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
+    exec 'match' 'Function' '/\V\<'.expand('<cword>').'\>/' 
+  else 
+    match none 
+  endif
+endfunction
+
+function! OpenCompletion()
+  if getline(".")[col(".")-2] !~# '[[:punct:][:blank:]]'
+    silent! call feedkeys("\<C-Space>")
+  endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * silent! call HighlightWordUnderCursor()
+autocmd! CursorHoldI * silent! call OpenCompletion()
+
+"""
 """ PLUGIN RELATED STUFF
 """
 
@@ -145,11 +174,6 @@ let g:pandoc#folding#fold_fenced_codeblocks = 1
 nmap <leader>q <plug>(QuickScopeToggle)
 
 """
-""" Scratch plugin mappings
-"""
-nnoremap <leader>g :Scratch<CR>
-
-"""
 """ APPEARANCE RELATED STUFF
 """
 " GUI fonts
@@ -166,5 +190,6 @@ if has("gui_running")
   set guioptions-=T "remove toolbar 
   set guioptions-=r "remove right scroll-bar 
   set guioptions-=L "remove left scroll-bar 
+  set guioptions-=e "remove menu bar
   set guitablabel=%t
 endif

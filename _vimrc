@@ -38,10 +38,7 @@ set backspace=indent,eol,start
 " pray for no crashes
 set noswapfile
 
-" Vim Directory same as current file
-" set autochdir
-
-" Visual autocomplete for command menu
+  " Visual autocomplete for command menu
 set wildmenu
 " Redraw only when we need to.
 set lazyredraw
@@ -60,6 +57,11 @@ nnoremap <leader>p "*p
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 
+" Change file type faster
+nnoremap <leader>f :set ft=
+" Create new file
+nnoremap <leader>n :enew<CR>
+"
 " Remove history buffer
 nnoremap q: <Nop>
 
@@ -123,6 +125,30 @@ set splitright
 nnoremap <leader>t :tabnew<CR>
 
 """
+""" Crazy syntax and completion
+"""
+set completeopt=menuone
+set pumheight=10
+set updatetime=10
+
+function! HighlightWordUnderCursor()
+  if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
+    exec 'match' 'Function' '/\V\<'.expand('<cword>').'\>/' 
+  else 
+    match none 
+  endif
+endfunction
+
+function! OpenCompletion()
+  if getline(".")[col(".")-2] !~# '[[:punct:][:blank:]]'
+    silent! call feedkeys("\<C-Space>")
+  endif
+endfunction
+
+autocmd! CursorHold,CursorHoldI * silent! call HighlightWordUnderCursor()
+autocmd! CursorHoldI * silent! call OpenCompletion()
+
+"""
 """ PLUGIN RELATED STUFF
 """
 
@@ -141,11 +167,6 @@ let g:pandoc#folding#fold_fenced_codeblocks = 1
 """ Quick-scope mappings
 """
 nmap <leader>q <plug>(QuickScopeToggle)
-
-"""
-""" Scratch plugin mappings
-"""
-nnoremap <leader>g :Scratch<CR>
 
 """
 """ APPEARANCE RELATED STUFF

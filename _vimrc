@@ -19,7 +19,7 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
-
+Plug 'tpope/vim-abolish'
 call plug#end()
 
 filetype on
@@ -44,6 +44,8 @@ set lazyredraw
 
 " Quicker exit of insert mode
 inoremap jk <Esc>
+" Don't select first element when doing ctrl-n
+inoremap <C-Space> <C-n><C-p>
 " Easier saving
 nnoremap <leader>s :w<CR>
 " Better move to beginning of line (ignores whitespace at the beginning)
@@ -151,5 +153,6 @@ if has("gui_running")
   set guioptions-=T "remove toolbar 
   set guioptions-=r "remove right scroll-bar 
   set guioptions-=L "remove left scroll-bar 
+  set guioptions-=e "remove menu bar
   set guitablabel=%t
 endif

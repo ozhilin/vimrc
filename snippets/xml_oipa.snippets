@@ -34,6 +34,9 @@ snippet colval
 snippet array
 	<MathVariable VARIABLENAME="${1:}" TYPE="${2:STRING|INTEGER|NUMERIC|DATE}ARRAY" OPERATION="${3:CREATE|FILLBY-SQL}" DATATYPE="${4:TEXT|INTEGER|DECIMAL|BOOLEAN}"></MathVariable>
 
+snippet append
+	<MathVariable VARIABLENAME="${1:}Array" TYPE="${2:STRING|INTEGER|NUMERIC|DATE}ARRAY" OPERATION="APPEND" SOURCEARRAY="${3:}Array" DATATYPE="${4:TEXT|INTEGER|DECIMAL|BOOLEAN}">${5:}</MathVariable>
+
 snippet count
 	<MathVariable VARIABLENAME="${1:}" TYPE="AGGREGATEFUNCTION" METHOD="COUNT" DATATYPE="INTEGER">${2:}</MathVariable>
 
@@ -57,3 +60,53 @@ snippet clientactivity
 	<MathVariable VARIABLENAME="$1Activity" TYPE="ACTIVITY" OPERATION="SETVALUE" FIELDNAME="EffectiveDate" DATATYPE="DATE">${4:}</MathVariable>
 	<MathVariable VARIABLENAME="$1Activity" TYPE="ACTIVITY" OPERATION="SETVALUE" FIELDNAME="${5:}" DATATYPE="${6:}">${7:}</MathVariable>
 	<MathVariable VARIABLENAME="$1ActivityArray" TYPE="ACTIVITYARRAY" OPERATION="APPEND" SOURCEARRAY="${8:}" DATATYPE="ACTIVITY">${0:}</MathVariable>
+
+snippet assign
+	<Action ACTIONTYPE="ASSIGN" FIELD="${1:}">${2:}</Action>
+
+snippet show
+	<Action ACTIONTYPE="SHOW" FIELD="${1:}"></Action>
+	${0:}
+
+snippet hide
+	<Action ACTIONTYPE="HIDE" FIELD="${1:}"></Action>
+	${0:}
+
+snippet warning
+	<Action ACTIONTYPE="WARNING">${1:}</Action>
+	${0:}
+
+snippet error
+	<Action ACTIONTYPE="ERROR">${1:}</Action>
+	${0:}
+
+snippet math
+	<Math>
+		<MathVariables>
+			${0:}
+		</MathVariables>
+	</Math>
+
+snippet mathif
+	<Math IF="${1:}">
+		<MathVariables>
+			${0:}
+		</MathVariables>
+	</Math>
+
+snippet field
+	<Field>
+		<Name>${1:}</Name>
+		<Display>${2:}</Display>
+		<DataType>${3:}</DataType>
+	</Field>
+
+snippet exit
+	<MathVariable VARIABLENAME="ExitLoopWhen" TYPE="EXIT-LOOP" IF="${1:}"></MathVariable>
+
+snippet activitysequence
+	<ActivitySequenceProcess>
+		<ActivitySequence>
+			<Activity PROCESSIMMEDIATE="No">${1:}</Activity>
+		</ActivitySequence>
+	</ActivitySequenceProcess>

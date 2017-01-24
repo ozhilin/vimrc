@@ -37,6 +37,10 @@ syntax on
 set backspace=indent,eol,start
 " pray for no crashes
 set noswapfile
+
+" Vim Directory same as current file
+" set autochdir
+
 " Visual autocomplete for command menu
 set wildmenu
 " Redraw only when we need to.
@@ -56,6 +60,9 @@ nnoremap <leader>p "*p
 nnoremap <leader>y "*y
 vnoremap <leader>y "*y
 
+" Remove history buffer
+nnoremap q: <Nop>
+
 " Flip " and ' so that registers are easier to use
 nnoremap " '
 nnoremap ' "
@@ -67,6 +74,10 @@ nnoremap <tab> za
 nnoremap <S-tab> zc
 " Show pressed keys in normal mode
 set showcmd
+
+" set vim dir to current file's directory
+nnoremap <leader>d :cd%:p:h<CR>
+
 
 """
 """ Searching configurations

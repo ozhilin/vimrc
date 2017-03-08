@@ -24,20 +24,29 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-abolish'
+Plug 'benmills/vimux'
 
 call plug#end()
+
+if has('win32') || has('win64')
+  source ~/vimfiles/oz/*
+else
+  source ~/.vim/oz/*
+endif
 
 filetype on
 
 " Space as leader
 let mapleader = " "
 
+" Can define local vimrc
+silent! so .vimlocal
+
 """ 
 """ misc settings and mappings
 """
 set ruler
 set relativenumber
-syntax on
 " rational backspace
 set backspace=indent,eol,start
 " pray for no crashes
@@ -135,14 +144,6 @@ nnoremap <leader>t :tabnew<CR>
 set completeopt=menuone
 set pumheight=10
 set updatetime=10
-
-function! HighlightWordUnderCursor()
-  if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 
-    exec 'match' 'Function' '/\V\<'.expand('<cword>').'\>/' 
-  else 
-    match none 
-  endif
-endfunction
 
 function! OpenCompletion()
   if getline(".")[col(".")-2] !~# '[[:punct:][:blank:]]'

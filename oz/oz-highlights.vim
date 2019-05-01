@@ -1,10 +1,11 @@
 let g:oz_hlignore = {}
 
 " keywords to ignore in filetypes
+let g:oz_hlignore['java']        = []
 let g:oz_hlignore['vim']        = ['function', 'if', 'else', 'endif', 'let']
 let g:oz_hlignore['python']     = ['def', 'class', 'for', 'while']
-let g:oz_hlignore['javascript'] = ['var', 'for']
-let g:oz_hlignore['js']         = ['var', 'for']
+let g:oz_hlignore['javascript'] = ['var', 'for', 'while', 'if', 'else', 'function']
+let g:oz_hlignore['js']         = ['var', 'for', 'while', 'if', 'else', 'function']
 
 function! HighlightWordUnderCursor()
   if getline(".")[col(".")-1] !~# '[[:punct:][:blank:]]' 

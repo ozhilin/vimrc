@@ -45,6 +45,9 @@ silent! so .vimlocal
 """ 
 """ misc settings and mappings
 """
+" make files use tabs
+autocmd FileType make setlocal noexpandtab
+
 set ruler
 set relativenumber
 " rational backspace
@@ -144,15 +147,6 @@ nnoremap <leader>t :tabnew<CR>
 set completeopt=menuone
 set pumheight=10
 set updatetime=10
-
-function! OpenCompletion()
-  if getline(".")[col(".")-2] !~# '[[:punct:][:blank:]]'
-    silent! call feedkeys("\<C-Space>")
-  endif
-endfunction
-
-autocmd! CursorHold,CursorHoldI * silent! call HighlightWordUnderCursor()
-autocmd! CursorHoldI * silent! call OpenCompletion()
 
 """
 """ PLUGIN RELATED STUFF

@@ -64,6 +64,8 @@ set lazyredraw
 inoremap jk <Esc>
 " Don't select first element when doing ctrl-n
 inoremap <C-Space> <C-n><C-p>
+" Evaluate math expression using vim calculator
+inoremap <C-A> <C-O>y^<End> = <C-R>=<C-R>0<CR>
 " Easier saving
 nnoremap <leader>s :w<CR>
 " Better move to beginning of line (ignores whitespace at the beginning)
@@ -78,9 +80,10 @@ vnoremap <leader>y "*y
 nnoremap <leader>f :set ft=
 " Create new file
 nnoremap <leader>n :enew<CR>
-"
 " Remove history buffer
 nnoremap q: <Nop>
+" Unmap the tab button (same as c-i) in normal mode so that it can be used to jump back and forth
+silent! nunmap <C-I>
 
 " Flip " and ' so that registers are easier to use
 nnoremap " '
@@ -89,13 +92,15 @@ vnoremap " '
 vnoremap ' "
 
 " Open/Close folds with tab
-nnoremap <tab> za
-nnoremap <S-tab> zc
+"nnoremap <tab> za
+"nnoremap <S-tab> zc
 " Show pressed keys in normal mode
 set showcmd
 
-" set vim dir to current file's directory
+" set vim dir to current file's directory, entered twice because conflicts
+" with diff commands otherwise, which is annoying
 nnoremap <leader>d :cd%:p:h<CR>
+nnoremap <leader>dd :cd%:p:h<CR>
 
 
 """
@@ -128,7 +133,7 @@ set expandtab
 """
 """ Window split related things
 """
-map <leader>w <C-W>
+"map <leader>w <C-W>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
@@ -141,14 +146,6 @@ set splitright
 """
 nnoremap <leader>t :tabnew<CR>
 
-"""
-""" Crazy syntax and completion
-"""
-set completeopt=menuone
-set pumheight=10
-set updatetime=10
-
-"""
 """ PLUGIN RELATED STUFF
 """
 
@@ -169,6 +166,27 @@ let g:pandoc#folding#fold_fenced_codeblocks = 1
 nmap <leader>q <plug>(QuickScopeToggle)
 
 """
+""" CtrlP Settings
+"""
+let g:ctrlp_match_window = 'results:200' " overcome limit imposed by max height
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=10000
+let g:ctrlp_cache_dir = '~/.cache/ctrlp'
+let g:ctrlp_clear_cache_on_exit = 0
+let ctrlp_lazy_update=1
+let g:ctrlp_working_path_mode = '0'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|AppData\|myenv\|venv'
+let g:ctrlp_switch_buffer = 'e'
+
+nnoremap <C-P>      :CtrlP<CR>
+nnoremap <C-P><C-P> :CtrlP<CR>
+nnoremap <C-P>p     :CtrlP<CR>
+nnoremap <C-P><C-B> :CtrlPBuffer<CR>
+nnoremap <C-P>b     :CtrlPBuffer<CR>
+nnoremap <C-P><C-M> :CtrlPMRUFiles<CR>
+nnoremap <C-P>m     :CtrlPMRUFiles<CR>
+
+"""
 """ APPEARANCE RELATED STUFF
 """
 " GUI fonts
@@ -178,7 +196,7 @@ if has("gui_running")
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
-    set guifont=Consolas:h11:cANSI
+    "set guifont=Consolas:h11:cANSI
   endif
 
   set guioptions-=m "remove menu bar
